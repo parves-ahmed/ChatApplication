@@ -53,7 +53,7 @@ public class ServerController {
 
     @MessageMapping("/room/{roomId}")
     public Message sendMessageToRoom(@Payload Message chatMessage) {
-        simpMessagingTemplate.convertAndSend("/topic/room" + chatMessage.getRoomId(), chatMessage.getContent());
+        simpMessagingTemplate.convertAndSend("/topic/room/" + chatMessage.getRoomId(), chatMessage.getContent());
         return chatMessage;
     }
 
